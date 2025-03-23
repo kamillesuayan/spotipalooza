@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+</head>
+
+<html>
+<body>
+    <h1 class="title">spotipalooza</h1>
+
+    <div class="top-artists">
+        <div class="top-artists__header">
+            <h2>your top artists to see</h2>
+            <p>based on your top artists, here are the people you might be interested in seeing – ranked!</p>
+        </div>
+        <div class="top-artists__grid">
+            {% for artist in value.top_artists_ranked %}
+                <a class="top-artists__card" href='{{ value.favorite_artists_attending[artist]["external_urls"]["spotify"] }}'>
+                    <img class="top-artists__img" src='{{ value.favorite_artists_attending[artist]["images"][0]["url"] }}'>
+                    <p class="top-artists__name">{{ artist }}</p>
+                    <p class="top-artists__day">fri</p>
+                    <!--<p>{{ value.favorite_artists_attending[artist]["external_urls"]["spotify"] }}</p>-->
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="top-artists">
+        <div class="top-artists__header">
+            <h2>more recommendations</h2>
+            <p>here are a couple more recommendations based on some of your favorite genres.</p>
+        </div>
+        
+        <div class="top-artists__grid">
+            {% for artist in value.recommended_artists %}
+                <a class="top-artists__card" href='{{ value.recommended_artists[artist]["external_urls"]["spotify"] }}'>
+                    <img class="top-artists__img" src='{{ value.recommended_artists[artist]["images"][0]["url"] }}'>
+                    <p class="top-artists__name">{{ artist }}</p>
+                    <div class="top-artists__day">fri</div>
+                    <div class="recommended-artists__genre-pill">{{ value.recommended_artists[artist]['genres'][0] }}</div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <p>excited for the festival? click below to receive a personalized playlist!</p>
+    <a class="playlist__button" href="https://kprofiles.com/xdinary-heroes-members-profile/">make a playlist</a>
+
+</body>
+</html>

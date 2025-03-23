@@ -1,0 +1,133 @@
+body {
+    background-color: #FCFBF5;
+    font-family: "Source Code Pro", monospace;
+    margin: 0 auto;
+    max-width: 600px;
+    text-align: center;
+    display: grid;
+    row-gap: 32px;
+}
+
+h2, p {
+    margin: 0;
+}
+
+.title {
+    color: #0048ff;
+}
+
+.top-artists, .recommended-artists {
+    max-width: 600px;
+}
+
+.top-artists__header, .recommended-artists__header {
+    row-gap: 4px;
+    margin-bottom: 16px;
+}
+
+.top-artists__grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.top-artists__card {
+    padding: 8px;
+    height: 150px;
+    width: 150px;
+    border-radius: 8px;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    text-align: center;
+    gap: 4px;
+    position: relative;
+}
+
+.top-artists__card:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.top-artists__img {
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    object-position: 25% 25%; 
+    -webkit-transition: all 1s ease;
+    -webkit-filter: grayscale(100%) brightness(.2); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%) brightness(.2);
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-artists__img:hover {
+    -webkit-filter: grayscale(40%) brightness(.5); /* Safari 6.0 - 9.0 */
+    filter: grayscale(40%) brightness(.5);
+    transition: .2s ease;
+}
+
+.top-artists__name {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: 700;
+}
+
+.top-artists__day {
+    position: absolute;
+    background-color: #D7FC54;
+    display: inline-block;
+    border-radius: 40px;
+    top: 0;
+    right: 16px;
+    padding: 4px 8px;
+    margin: 0 4px;
+    display: inline-block;
+    line-height: 16px;
+    font-size: 14px;
+}
+
+.recommended-artists__all-artists {
+    row-gap: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.recommended-artists__artist-name {
+    font-size: 20px;
+}
+
+.recommended-artists__genre-pill {
+    background-color: #FF3A01;
+    color: #FCFBF5;
+    border-radius: 40px;
+    padding: 4px 8px;
+    margin: 4px;
+    display: inline-block;
+    line-height: 14px;
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+}
+
+.playlist__button {
+    border: #0048ff solid 1px;
+    border-radius: 40px;
+    color: #0048ff;
+    text-decoration: none;
+    padding: 8px 16px;
+    display: inline-block;
+    margin-bottom: 16px;
+}
+
+.playlist__button:hover {
+    background-color: #0048ff;
+    color: #FCFBF5;
+    transition: .5s ease;
+}
